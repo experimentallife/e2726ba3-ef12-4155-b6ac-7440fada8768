@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 flask = "*"
 connexion = {extras = ["swagger-ui"], version = "*"}
+flask-assets = "*"
+pyscss = "*"
 
 [dev-packages]
 

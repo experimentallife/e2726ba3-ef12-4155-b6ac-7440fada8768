@@ -1,5 +1,5 @@
-from src import Bootstrap
+from bootstrap import Bootstrap
 
-bootstrap = Bootstrap()
+boot = Bootstrap()
 if __name__ == '__main__':
-    bootstrap.run()
+    boot.run()
