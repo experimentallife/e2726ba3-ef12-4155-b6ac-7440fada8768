@@ -9,8 +9,9 @@ connexion = {extras = ["swagger-ui"], version = "*"}
 flask-assets = "*"
 pyscss = "*"
 sqlalchemy = "*"
-dependency-injector = "*"
 "ruamel.yaml" = "*"
+flask-injector = "*"
+injector = "*"
 
 [dev-packages]
 

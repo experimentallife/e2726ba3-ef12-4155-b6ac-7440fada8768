@@ -1,12 +1,14 @@
 from connexion import FlaskApp
-from connexion.resolver import RestyResolver
+from connexion.resolver import RestyResolver # MethodViewResolver
 from flask import Flask
 from flask_assets import Environment, Bundle
+from flask_injector import FlaskInjector
 
 from healthcheck import healthcheck_blueprint
 from pages import pages_blueprint
 
-from ioc.container import Container
+# from ioc.container import Container
+from ioc import configure
 
 class Bootstrap:
     def __init__(self) -> None:
@@ -30,9 +32,8 @@ class Bootstrap:
 
         self.assets.register('theme', Bundle('scss/theme.scss', filters='pyscss', output='css/theme.css'))
 
+        FlaskInjector(app=self.application, modules=[configure])
+
     def run(self):
-        container = Container()
-        container.wire(modules=[__name__])
-        
         self.create_app()
         self.application.run()

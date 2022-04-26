@@ -1,0 +1,1 @@
+from ioc.module import configure

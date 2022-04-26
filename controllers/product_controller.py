@@ -1,44 +1,45 @@
 import datetime
 
-from dependency_injector.providers import Factory
-# from dependency_injector.wiring import inject, Provide
-import dependency_injector.injections as injections
+from injector import inject
 
 from connexion import NoContent
 from flask import request
 from flask.views import MethodView
 
-from ioc.container import Container
-from services.product_service import ProductService
+from services import ProductService
 
-@injections.inject(product_service=Container.product_service)
+@inject
 def get(id, product_service: ProductService):
-    product_service.get()
+    product_service.print()
     return NoContent
 
-# @inject
-# def get():
-#     return { a: 'bbb' }
+# class ProductControllerView(MethodView):
+#     @inject
+#     def __init__(self, product_service: ProductService):
+#         self.__product_service = product_service
 
-@inject
-def find(dto):
-    pass
+#     def get(self, id):
+#         self.__product_service.print()
+#         return NoContent
 
-@inject
-def find_one(query):
-    pass
+#     # @inject
+#     # def get():
+#     #     return { a: 'bbb' }
 
-@inject
-def find_many(query):
-    pass
+#     def find(self, dto):
+#         pass
 
-@inject
-def create(dto):
-    pass
-@inject
-def update(dto):
-    pass
+#     def find_one(self, query):
+#         pass
 
-@inject
-def delete(id):
-    pass
+#     def find_many(self, query):
+#         pass
+
+#     def create(self, dto):
+#         pass
+
+#     def update(self, dto):
+#         pass
+
+#     def delete(self, id):
+#         pass
